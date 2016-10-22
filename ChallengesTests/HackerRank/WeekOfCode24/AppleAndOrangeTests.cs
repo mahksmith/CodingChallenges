@@ -158,7 +158,7 @@ namespace Tests
 
         private TextReader CreateFileStream(String filename)
         {
-            string dir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Test Input/", filename);
+            string dir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Test Input/AppleAndOrange", filename);
             return new StreamReader(dir);
         }
     }

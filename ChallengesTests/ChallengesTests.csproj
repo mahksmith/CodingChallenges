@@ -102,7 +102,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Test Input\AppleAndOrangeTestCase03.txt">
+    <None Include="Test Input\AppleAndOrange\AppleAndOrangeTestCase03.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -114,28 +114,28 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Test Input\AppleAndOrangeTestCase04.txt">
+    <Content Include="Test Input\AppleAndOrange\AppleAndOrangeTestCase04.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Test Input\AppleAndOrangeTestCase05.txt">
+    <Content Include="Test Input\AppleAndOrange\AppleAndOrangeTestCase05.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Test Input\AppleAndOrangeTestCase06.txt">
+    <Content Include="Test Input\AppleAndOrange\AppleAndOrangeTestCase06.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Test Input\AppleAndOrangeTestCase07.txt">
+    <Content Include="Test Input\AppleAndOrange\AppleAndOrangeTestCase07.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Test Input\AppleAndOrangeTestCase08.txt">
+    <Content Include="Test Input\AppleAndOrange\AppleAndOrangeTestCase08.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Test Input\AppleAndOrangeTestCase09.txt">
+    <Content Include="Test Input\AppleAndOrange\AppleAndOrangeTestCase09.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Test Input\AppleAndOrangeTestCase10.txt">
+    <Content Include="Test Input\AppleAndOrange\AppleAndOrangeTestCase10.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Test Input\AppleAndOrangeTestCase11.txt">
+    <Content Include="Test Input\AppleAndOrange\AppleAndOrangeTestCase11.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Test Input\HappyLadybugs\HappyLadybugsTest03Output.txt">
