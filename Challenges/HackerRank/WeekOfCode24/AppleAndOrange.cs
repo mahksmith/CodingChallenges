@@ -38,8 +38,6 @@ namespace Challenges.HackerRank.WeekOfCode24
             apples = Array.ConvertAll(apple_temp, Int32.Parse);
             string[] orange_temp = tr.ReadLine().Split(' ');
             oranges = Array.ConvertAll(orange_temp, Int32.Parse);
-
-
         }
         
         public int Count(string type)

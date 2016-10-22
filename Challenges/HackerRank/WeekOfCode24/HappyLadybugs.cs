@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Challenges.HackerRank.WeekOfCode24
 {
@@ -7,27 +8,26 @@ namespace Challenges.HackerRank.WeekOfCode24
     {
         static void Main(String[] args)
         {
-            if (args.Length.Equals(0))
+            foreach (string s in ReadStream(Console.In))
             {
-                //Supplied Code for Exercise
-                int Q = Convert.ToInt32(Console.ReadLine());
-                for (int a0 = 0; a0 < Q; a0++)
-                {
-                    int n = Convert.ToInt32(Console.ReadLine());
-                    string b = Console.ReadLine();
+                Console.WriteLine(s);
+            }
+        }
 
-                    Console.WriteLine(IsHappy(b));
-                }
-            }
-            else
+        public static string[] ReadStream(TextReader tr)
+        {
+            int Q = Convert.ToInt32(tr.ReadLine());
+            string[] ret = new string[Q];
+
+            for (int a0 = 0; a0 < Q; a0++)
             {
-                int Q = Convert.ToInt32(args[0]);
-                for (int a0 = 0; a0 < Q * 2; a0 += 2)
-                {
-                    int n = Convert.ToInt32(args[a0 + 1]);
-                    string b = args[a0 + 2];
-                }
+                int n = Convert.ToInt32(tr.ReadLine());
+                string b = tr.ReadLine();
+
+                ret[a0] = IsHappy(b);
             }
+
+            return ret;
         }
 
         //To determine the board, we should just need to sort the string, pair off all "colors". 
@@ -55,17 +55,20 @@ namespace Challenges.HackerRank.WeekOfCode24
                 survey.Clear();
 
                 char prev = '.';
+                string last_ret = "";
                 foreach (char c in b.ToCharArray())
                 {
-                    // add each color to dictionary, if it already exists, and previous one added is already in the dictionary then output no.
-                    if (survey.ContainsKey(c) && prev != c)
-                        return "NO";
-                    else
-                        survey = Add_To_Dictionary(survey, c);
+                    if (prev != c && last_ret.Equals("NO"))
+                        return last_ret;
+                    else if (prev != c)
+                        last_ret = "NO";
+                    else if (prev == c)
+                        last_ret = "YES";
+                    
                     prev = c;
                 }
+                return last_ret;
             }
-            return "YES";
         }
 
         private static Dictionary<char, uint> Add_To_Dictionary(Dictionary<char, uint> survey, char color)
