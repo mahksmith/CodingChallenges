@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Challenges.HackerRank.WeekOfCode24.SimplifiedChessEngine</StartupObject>
+    <StartupObject>Challenges.HackerRank.WeekOfCode26._101Hack44.Solution</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -66,6 +66,12 @@
     <Compile Include="HackerRank\101Hack42\PointsOnRectangle.cs" />
     <Compile Include="HackerRank\WeekOfCode24\HappyLadybugs.cs" />
     <Compile Include="HackerRank\WeekOfCode24\AppleAndOrange.cs" />
+    <Compile Include="HackerRank\101Hack44\AliceAndBobsSillyGame.cs" />
+    <Compile Include="HackerRank\101Hack44\PickingNumbers.cs" />
+    <Compile Include="HackerRank\WeekOfCode26\BestDivisor.cs" />
+    <Compile Include="HackerRank\WeekOfCode26\ArmyGame.cs" />
+    <Compile Include="HackerRank\WeekOfCode26\MusicOnTheStreet.cs" />
+    <Compile Include="HackerRank\WeekOfCode26\Twins.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HackerRank\WeekOfCode24\SimplifiedChessEngine.cs" />
     <Compile Include="HackerRank\WeekOfCode24\XORMatrix.cs" />

@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Mono.Cecil, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit3TestAdapter.3.4.1\lib\Mono.Cecil.dll</HintPath>
       <Private>True</Private>
@@ -79,6 +82,10 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="HackerRank\WeekOfCode26\ArmyGameTests.cs" />
+    <Compile Include="HackerRank\WeekOfCode26\BestDivisorTests.cs" />
+    <Compile Include="HackerRank\WeekOfCode26\MusicOnTheStreetTests.cs" />
+    <Compile Include="HackerRank\WeekOfCode26\TwinsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HackerRank\WeekOfCode24\AppleAndOrangeTests.cs" />
     <Compile Include="HackerRank\WeekOfCode24\HappyLadybugsTests.cs" />
@@ -178,6 +185,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Test Input\HappyLadybugs\HappyLadybugsTest10Output.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Test Input\SimplifiedChessEngine\Test10Input.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Test Input\SimplifiedChessEngine\Test10Output.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

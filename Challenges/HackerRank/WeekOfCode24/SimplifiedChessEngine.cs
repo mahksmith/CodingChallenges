@@ -1,25 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.IO;
 
 namespace Challenges.HackerRank.WeekOfCode24
 {
     public class SimplifiedChessEngine
     {
-        //public Solution(int moves_constraint, Tuple<char, char, int, int>[] pieces)
-        //{
-        //    this.moves_constraint = moves_constraint;
-        //    this.pieces = pieces;
-        //}
+        private List<Tuple<char, char, int, int>> pieces;
+        int max_turns;
 
-        public static string Solve(int max_moves, List<Tuple<char, char, int, int>> pieces, int current_move = 1)
+        public SimplifiedChessEngine(int max_moves, List<Tuple<char, char, int, int>> pieces)
+        {
+            this.max_turns = max_moves;
+            this.pieces = pieces;
+        }
+
+        public static List<SimplifiedChessEngine> ReadStream(TextReader tr)
+        {
+            int games = Convert.ToInt32(tr.ReadLine());
+            List<SimplifiedChessEngine> list = new List<SimplifiedChessEngine>(games);
+
+            for (int g = 0; g < games; g++)
+            {
+                int[] ints = Array.ConvertAll(tr.ReadLine().Split(' '), Convert.ToInt32);
+                int pieces_white = ints[0];
+                int pieces_black = ints[1];
+                int max_turns = ints[2];
+
+                List<Tuple<char, char, int, int>> pieces = new List<Tuple<char, char, int, int>>(pieces_white + pieces_black);
+
+                for (int i = 0; i < pieces_white + pieces_black; i++)
+                {
+                    char color;
+                    if (i < pieces_white)
+                        color = 'W';
+                    else
+                        color = 'B';
+
+
+                    string[] piece = tr.ReadLine().Split(' ');
+                    pieces.Add(new Tuple<char, char, int, int>(color, Convert.ToChar(piece[0]), Convert.ToInt32(Convert.ToChar(piece[1])) - 64, Convert.ToInt32(piece[2])));
+                }
+
+                SimplifiedChessEngine sce = new SimplifiedChessEngine(max_turns, pieces);
+                list.Add(sce);
+            }
+            return list;
+        }
+
+        public string Solve(int current_move = 1)
         {
             //Basically, we want to generate first the list of all moves possible.
             // Making sure that a player cannot move two pieces to the same spot, but can move (and delete) other players token.
             // If the white queen is removed, return "YES".
 
             // recursively, using move number as depth, generate all moves breadth-first.
-            if (current_move > max_moves)
+            if (current_move > this.max_turns)
             {
                 return "NO";
             }
@@ -86,7 +122,7 @@ namespace Challenges.HackerRank.WeekOfCode24
                     }
                     else
                     {
-                        if (Solve(max_moves, pieces_copy, current_move + 1).Equals("YES"))
+                        if (Solve(current_move + 1).Equals("YES"))
                             return "YES";
                     }
                 }
@@ -233,40 +269,12 @@ namespace Challenges.HackerRank.WeekOfCode24
 
         static void Main(string[] args)
         {
-            // w + b subsequent lines of t c r: t is a character {Q,N,B,R}, column, row for location. 
+            List<SimplifiedChessEngine> games = ReadStream(Console.In);
 
-            List<Tuple<char, char, int, int>> pieces;
-
-            //get from stdin
-            int games = Convert.ToInt32(Console.ReadLine());
-            for (int g = 0; g < games; g++)
+            foreach (SimplifiedChessEngine sce in games)
             {
-                int[] pieces_temp = Array.ConvertAll(Console.ReadLine().Split(' '), Convert.ToInt32);
-                int w = pieces_temp[0];                             // Number of white pieces
-                int b = pieces_temp[1];                             // Number of black pieces
-                int m = pieces_temp[2];                             // Number of moves we want to know if white can win in
-
-                pieces = new List<Tuple<char, char, int, int>>(w + b);
-
-                for (int i = 0; i < w + b; i++)
-                {
-                    char color;
-                    if (i < w)
-                        color = 'W';
-                    else
-                        color = 'B';
-
-
-                    string[] piece = Console.ReadLine().Split(' ');
-                    pieces.Add(new Tuple<char, char, int, int>(color, Convert.ToChar(piece[0]), Convert.ToInt32(Convert.ToChar(piece[1])) - 64, Convert.ToInt32(piece[2])));
-                }
-
-                string answer = Solve(m, pieces, 1);
-                Console.WriteLine(answer);
-                if (Debugger.IsAttached)
-                {
-                    Console.ReadLine();
-                }
+                string s = sce.Solve();
+                Console.WriteLine(s);
             }
         }
     }

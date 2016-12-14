@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Challenges.HackerRank.WeekOfCode24;
+using System.IO;
 
 namespace Tests
 {
@@ -9,14 +10,16 @@ namespace Tests
     public class SimplifiedChessEngineTests
     {
         [Test()]
-        public void SuppliedTest()
+        public void TestCase00()
         {
             List<Tuple<char, char, int, int>> pieces = new List<Tuple<char, char, int, int>>(3);
             pieces.Add(new Tuple<char, char, int, int>('W', 'N', 2, 2));
             pieces.Add(new Tuple<char, char, int, int>('W', 'Q', 2, 1));
             pieces.Add(new Tuple<char, char, int, int>('B', 'Q', 1, 4));
 
-            Assert.AreEqual("YES", SimplifiedChessEngine.Solve(1, pieces, 1));
+            SimplifiedChessEngine sce = new SimplifiedChessEngine(1, pieces);
+
+            Assert.AreEqual("YES", sce.Solve());
         }
 
         [Test()]
@@ -117,7 +120,208 @@ namespace Tests
             pieces.Add(new Tuple<char, char, int, int>('W', 'Q', 2, 1));
             pieces.Add(new Tuple<char, char, int, int>('B', 'Q', 1, 4));
 
-            Assert.AreEqual("YES", SimplifiedChessEngine.Solve(3, pieces, 1));
+            SimplifiedChessEngine sce = new SimplifiedChessEngine(3, pieces);
+
+            Assert.AreEqual("YES", sce.Solve());
+        }
+
+        [Test()]
+        public void TestCase01()
+        {
+            /*
+             * 1
+             * 1 1 4
+             * Q C 1
+             * Q B 3
+             */
+             
+            List<Tuple<char, char, int, int>> pieces = new List<Tuple<char, char, int, int>>(2);
+            
+            pieces.Add(new Tuple<char, char, int, int>('W', 'Q', 'C', 1));
+            pieces.Add(new Tuple<char, char, int, int>('B', 'Q', 'B', 3));
+            
+            SimplifiedChessEngine sce = new SimplifiedChessEngine(4, pieces);
+
+            Assert.AreEqual("NO", sce.Solve());
+        }
+
+        [Test()]
+        public void TestCase02()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase03()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase04()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase05()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase06()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase07()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase08()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase09()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase10()
+        {
+            List<SimplifiedChessEngine> list = SimplifiedChessEngine.ReadStream(new StreamReader(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Test Input/SimplifiedChessEngine", "Test10Input.txt")));
+
+            TextReader tr = new StreamReader(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Test Input", "SimplifiedChessEngine", "Test10Output.txt"));
+
+            foreach (SimplifiedChessEngine sce in list)
+                Assert.AreEqual(tr.ReadLine(), sce.Solve());
+        }
+
+        [Test()]
+        public void TestCase11()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase12()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase13()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase14()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase15()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase16()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase17()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase18()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase19()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase20()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase21()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase22()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase23()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase024()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase25()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase26()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase27()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase28()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase29()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Test()]
+        public void TestCase30()
+        {
+            throw new NotImplementedException();
         }
     }
 }
